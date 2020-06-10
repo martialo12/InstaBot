@@ -12,13 +12,14 @@ InstaBotConfig.read_from_file()
 insta_username = InstaBotConfig.USERNAME
 insta_password = InstaBotConfig.PASSWORD
 
-#path to your workspace
+# path to your workspace
 set_workspace(path='InstaPy')
 
 
 def insta_bot():
     # run with browser GUI
-    session = InstaPy(username=insta_username, password=insta_password)
+    session = InstaPy(username=insta_username, password=insta_password,
+                      geckodriver_path='InstaPy/assets/gecko/v0.26.0/geckodriver-v0.26.0-win64')
 
     # run without browser GUI
     # session = InstaPy(username=username, password=password, headless_browser=True)
@@ -30,8 +31,6 @@ def insta_bot():
         session.set_do_comment(True, percentage=50)
         session.set_comments([u'This post is 🔥',u'More emojis are always better 💯',u'I love your posts 😍😍😍']);
         session.set_dont_like(["naked", "sex", "sexe", "ass"])
-        session.set_quota_supervisor(enabled=True, peak_comments_daily=100, peak_comments_hourly=15)
-
         session.set_quota_supervisor(enabled=True,
                                      sleep_after=["likes", "comments_d", "follows", "unfollows", "server_calls_h"],
                                      sleepyhead=True, stochastic_flow=True, notify_me=True,
@@ -44,14 +43,14 @@ def insta_bot():
                                      peak_unfollows_hourly=10,
                                      peak_unfollows_daily=100)
 
-        lazySmurf_following = session.grab_following(username="lazy.smurf", amount="full", live_match=True,
+        aygat94_following = session.grab_following(username="aygat94", amount="full", live_match=True,
                                                      store_locally=True)
 
         session.end()
 
 
 if __name__=='__main__':
-    schedule.every().day.at("18:00").do(insta_bot)
+    schedule.every().day.at("20:52").do(insta_bot)
     while True:
         schedule.run_pending()
         time.sleep(10)
