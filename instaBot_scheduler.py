@@ -18,8 +18,7 @@ set_workspace(path='InstaPy')
 
 def insta_bot():
     # run with browser GUI
-    session = InstaPy(username=insta_username, password=insta_password,
-                      geckodriver_path='InstaPy/assets/gecko/v0.26.0/geckodriver-v0.26.0-win64')
+    session = InstaPy(username=insta_username, password=insta_password)
 
     # run without browser GUI
     # session = InstaPy(username=username, password=password, headless_browser=True)
@@ -50,7 +49,7 @@ def insta_bot():
 
 
 if __name__=='__main__':
-    schedule.every().day.at("20:52").do(insta_bot)
+    schedule.every().day.at("9:00").do(insta_bot)
     while True:
         schedule.run_pending()
         time.sleep(10)
