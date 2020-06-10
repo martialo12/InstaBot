@@ -28,13 +28,6 @@ This instagram bot was made using `instapy`library
   $ pip install -r requirements.txt
   ```
 
-4- Set the database by editing your configuration file
-  ```
-  $ flask shell
-  $ >>> from app import db
-  $ >>> db.create_all()
-  ```
-
 5- Runnning the bot:
   ```
    python instaBot.py
